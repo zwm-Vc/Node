@@ -1,4 +1,11 @@
 var name = "World";
 var s = `Hello ${name}!`;
 
-console.log(s);
+
+function hello(language){
+    console.log(s + ' ' + language);
+}
+(function vs(){
+    console.log("right now");
+})();
+module.exports = hello;
