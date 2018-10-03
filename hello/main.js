@@ -4,4 +4,5 @@ var greet = require("./hello");
 
 var language = "English";
 
-greet(language);
+greet.hello(language);
+greet.world();

@@ -8,4 +8,11 @@ function hello(language){
 (function vs(){
     console.log("right now");
 })();
-module.exports = hello;
+
+function world (){
+    console.log("Second Hello")
+};
+module.exports = {
+    hello : hello,
+    world : world
+}
