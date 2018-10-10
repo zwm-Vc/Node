@@ -1,0 +1,31 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZNODE_V_CDS" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="ZNODE_VType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="nodeid"/>
+                </Key>
+                <Property Name="nodeid" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Version Number Component"/>
+                <Property Name="hierarchylevel" Type="Edm.Byte" sap:label="Int." sap:quickinfo="Dummy for B20 int1 (Local Everywhere)"/>
+                <Property Name="description" Type="Edm.String" MaxLength="255" sap:display-format="UpperCase" sap:label="Char255"/>
+                <Property Name="parentnodeid" Type="Edm.Byte" sap:label="Int." sap:quickinfo="Dummy for B20 int1 (Local Everywhere)"/>
+                <Property Name="ds" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase"/>
+            </EntityType>
+            <EntityContainer Name="ZNODE_V_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZNODE_V" EntityType="ZNODE_V_CDS.ZNODE_VType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZNODE_V_CDS/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZNODE_V_CDS/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

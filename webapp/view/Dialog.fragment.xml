@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout">
+	<Dialog>
+		<l:Grid defaultSpan="L4 M6 S12">
+			<Tree id="Tree1" items="{ path : 'json>/nodeRoot', parameters : { arrayNames:['children'] } }">
+				<StandardTreeItem title="{json>description}" press="handleST" type="Active"/>
+			</Tree>
+			<Table headerText="标准化" items="{/kmsSet/np_kms2top}">
+				<columns>
+					<Column visible="{/parameter/hotVib}">
+						<Text text="文档名称"/>
+					</Column>
+					<Column visible="{/parameter/hotVib}">
+						<Text text="参考次数"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem visible="{path:'Filetype',formatter:'.formatter.standard'}">
+						<cells>
+							<Text text="{Filename}"/>
+							<Text text="{Times}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Table headerText="技术文档" items="{/kmsSet/np_kms2top}">
+				<columns>
+					<Column visible="{/parameter/hotVib}">
+						<Text text="文档名称"/>
+					</Column>
+					<Column visible="{/parameter/hotVib}">
+						<Text text="参考次数"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem visible="{path:'Filetype',formatter:'.formatter.doc'}">
+						<cells>
+							<Text text="{Filename}"/>
+							<Text text="{Times}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</l:Grid>
+	</Dialog>
+</core:FragmentDefinition>
