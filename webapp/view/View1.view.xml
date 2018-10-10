@@ -1,0 +1,53 @@
+<mvc:View controllerName="znode.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.ui.table" xmlns:m="sap.m" id="zwm">
+	<m:App>
+		<m:pages>
+			<m:Page title="{i18n>title}">
+				<m:content>
+					<m:Button press="onPress" text="anniu"></m:Button>
+					<!--					<TreeTable id="treeTable" enableColumnReordering="true" selectionMode="Single"
+						toggleOpenState="handleToggle"
+						rows="{ path:'/ZNODE_V', parameters : { 
+						numberOfExpandedLevels: '3',
+						countMode: 'Inline',
+						treeAnnotationProperties : { 
+						
+						hierarchyLevelFor : 'hierarchylevel',
+						hierarchyNodeFor : 'nodeid', 
+						hierarchyParentNodeFor : 'parentnodeid',
+						hierarchyDrillStateFor : 'drillstate'
+						 } } }">-->
+					<TreeTable id="treeTable" selectionMode="Single" enableColumnReordering="false" expandFirstLevel="false"
+						rows="{ path : 'json>/nodeRoot', parameters : { arrayNames:['children'] } }">
+
+						<columns>
+							<Column label="Description">
+								<template>
+									<m:Text text="{json>description}" wrapping="false"/>
+								</template>
+							</Column>
+							<Column label="HierarchyLevel">
+								<template>
+									<m:Text text="{json>hierarchylevel}" wrapping="false"/>
+								</template>
+							</Column>
+							<Column label="NodeID">
+								<template>
+									<m:Text text="{json>nodeid}" wrapping="false"/>
+								</template>
+							</Column>
+							<Column label="ParentNodeID">
+								<template>
+									<m:Text text="{json>parentnodeid}" wrapping="false"/>
+								</template>
+							</Column>
+						</columns>
+					</TreeTable>
+					<!--<m:Tree id="Tree" items="{ path : 'json>/nodeRoot', parameters : { arrayNames:['children'] } }">-->
+					<!--	<m:StandardTreeItem title="{json>description}" press="handleST" type="Active" />-->
+					<!--</m:Tree>-->
+				</m:content>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>
