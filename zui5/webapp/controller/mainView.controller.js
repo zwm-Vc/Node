@@ -11,6 +11,9 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this._timer = null;
+			console.log("Hello World");
+			console.log("second commit");
+			console.log("Third commit");
 		},
 
 		/**
@@ -36,51 +39,53 @@ sap.ui.define([
 
 		},
 
-		onPress: function(evt){
+		onPress: function(evt) {
 			var oLabelTimeLeft = this.getView().byId("label");
 			var progressIndicator = this.getView().byId("pi");
 			var p = progressIndicator.getPercentValue();
 			var totalTime = 10000;
-			const interval  = 100;
-			if(p == 0){
+			var interval = 100;
+			if (p == 0) {
 				progressIndicator.setState("None");
 				progressIndicator.setPercentValue(100);
 			}
-			var timer   = setInterval(function(){
+			var timer = setInterval(function() {
 				var percent = progressIndicator.getPercentValue();
-				var newPercent= percent - 1;
-				var timePassed = (totalTime * newPercent)/100;
-				timePassed = Math.floor(timePassed/1000);
-				var seconds = (timePassed % 60); timePassed = Math.floor(timePassed/60);
-				var minutes = (timePassed % 60); timePassed = Math.floor(timePassed/60);
-				if(minutes.toString().length == 1){
+				var newPercent = percent - 1;
+				var timePassed = (totalTime * newPercent) / 100;
+				timePassed = Math.floor(timePassed / 1000);
+				var seconds = (timePassed % 60);
+				timePassed = Math.floor(timePassed / 60);
+				var minutes = (timePassed % 60);
+				timePassed = Math.floor(timePassed / 60);
+				if (minutes.toString().length == 1) {
 					minutes = "0" + minutes;
-			   }
-			   if(seconds.toString().length == 1){
-				   seconds = "0" + seconds;
-			   }
-			   if(newPercent >= 0){
+				}
+				if (seconds.toString().length == 1) {
+					seconds = "0" + seconds;
+				}
+				if (newPercent >= 0) {
 					progressIndicator.setPercentValue(newPercent);
 					//Change bar color to negative in last 30 seconds
-					if(newPercent <= 25){
+					if (newPercent <= 25) {
 						progressIndicator.setState("Error");
 					}
 					//Change bar color to critical in last 1 minute
-					else if(newPercent <= 50){
+					else if (newPercent <= 50) {
 						progressIndicator.setState("Success");
 					}
 					//Update current time left
 					oLabelTimeLeft.setText(minutes + ":" + seconds);
-			   } else {
+				} else {
 					//Stop timer after 2 minutes
-					
+
 					clearInterval(timer);
-			   }
-			},100);
+				}
+			}, 100);
 			this._timer = timer;
 		},
-		onStop : function(evt){
-			clearInterval(this._timer)
+		onStop: function(evt) {
+			clearInterval(this._timer);
 		}
 	});
 });
