@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "ui5": "expressui5",
+        "loda" : "lodash"
+    },
+    "dependencies": {
+        "lodash": "^4.17.11"
+    }
+}
