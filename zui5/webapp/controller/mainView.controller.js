@@ -13,6 +13,7 @@ sap.ui.define([
 			this._timer = null;
 			console.log("Hello World");
 			console.log("second commit");
+			console.log("Third commit");
 		},
 
 		/**
