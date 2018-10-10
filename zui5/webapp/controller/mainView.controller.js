@@ -12,6 +12,7 @@ sap.ui.define([
 		onInit: function() {
 			this._timer = null;
 			console.log("Hello World");
+			console.log("second commit");
 		},
 
 		/**
